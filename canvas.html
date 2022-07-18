@@ -1,0 +1,29 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+	var pantalla = document.querySelector("canvas");
+	var pincel = pantalla.getContext("2d");
+
+	pincel.fillStyle = "lightgrey"; // fillStyle es una propiedad
+	pincel.fillRect(0,0,600,400); // fillRect es una función
+
+	pincel.fillStyle = "green"; //pinto un rectángulo con el color verde
+	pincel.fillRect(0,0,200,400);
+
+	pincel.fillStyle = "red"; //Pinto un rectángulo con el color rojo
+	pincel.fillRect(400,0,600,400);
+
+	pincel.fillStyle = "yellow"; //Dibujo un triángulo y lo pinto de color amarillo
+	pincel.beginPath();
+	pincel.moveTo(300,200);
+	pincel.lineTo(200,400);
+	pincel.lineTo(400,400);
+	pincel.fill();
+
+	pincel.fillStyle = "blue"; //Dibujo un círculo y lo pinto de color azul
+	pincel.beginPath();
+	pincel.arc(300,200,50,0,2*3.14); // Posición incial (200,200) el radio (50) ángulo inicial (0) ángulo final (2*3.14)
+	pincel.fill();
+
+
+</script>
