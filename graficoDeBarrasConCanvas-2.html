@@ -1,0 +1,58 @@
+<canvas width="600" height="400"></canvas>
+
+<style>
+  canvas { border: 1px solid black; }
+</style>
+
+<script>
+
+    function dibujarRectangulo(x, y, base, altura, color) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle=color;
+        pincel.fillRect(x,y, base, altura);
+        pincel.strokeStyle="black";
+        pincel.strokeRect(x,y, base, altura);
+    }
+
+    function escribirTexto(x , y, texto) {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        pincel.font="15px Georgia";
+        pincel.fillStyle="black";
+        pincel.fillText(texto, x, y);    
+    }
+
+    var serie2009 = [6,47,41,3,3];
+    var serie2019 = [81,9,3,3,4];
+    var empresas = ["Chrome", "Firefox", "Internet Explorer/Edge", "Safari", "Otros"];   
+    var colores = ["blue","green","yellow", "red","gray"];
+
+    function dibujarBarra(x, y, serie, colores, texto, empresas) {
+
+        escribirTexto(x, (y-10), texto);
+
+        for (var pos = 0; pos < serie.length; pos++) {
+
+            base = 50;
+            altura = serie[pos] * 3.5; // la multiplicacion por 3.5 es para mejorar la visualizacion
+            dibujarRectangulo(x, y, base, altura, colores[pos]);
+
+
+            escribirTexto(x + 55, y + (altura/2), empresas[pos]); // "altura/2" es para mejorar la ubicacion del texto
+
+            // la sig. linea esta para visualizar lo que pasa en cada iteracion
+            document.write("<br>Iteracion: " + pos + " " + texto + " "  + empresas[pos] + " " + ":" + " " + colores[pos] + " " + ": " + serie[pos] + "%  <br><br>")
+
+            // la sig. linea actualiza la siguiente posicion de        // empresa = empresas[posicion];
+            y = y + (serie[pos] * 3.5); // idem altura
+        }
+
+    }
+
+    dibujarBarra(50, 30, serie2009, colores, "2009", empresas);
+    dibujarBarra(250, 30, serie2019, colores, "2019", empresas);
+
+</script>
