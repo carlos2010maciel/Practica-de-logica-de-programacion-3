@@ -8,8 +8,8 @@
   pincel.fillRect(0, 0, 600, 400);
 
   function exhibirAlerta(evento){
-    var x = evento.pageX - pantalla.offsetLeft; //posición X
-    var y = evento.pageY - pantalla.offsetTop; //posición Y
+    var x = evento.pageX - pantalla.offsetLeft; //posición X: para que me reste el espacio que hay a la izquierda del Canvas
+    var y = evento.pageY - pantalla.offsetTop; //posición Y: para que me reste el espacio que hay arriba del Canvas
     var d = new Date(); //crea una variable de tipo date
     var hora = checkTime(d.getHours()) + ":" + checkTime(d.getMinutes()) + ":" + checkTime(d.getSeconds());
     //Verifica si el número de las horas, minutos o segundos, tiene un solo dígito, 
